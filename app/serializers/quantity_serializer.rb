@@ -1,3 +1,4 @@
 class QuantitySerializer < ActiveModel::Serializer
-  attributes :id, :recipe_id, :ingredient_id, :amount, :unit
+  belongs_to :ingredient
+  attributes :id, :recipe_id, :ingredient_id, :name, :amount, :unit
 end
