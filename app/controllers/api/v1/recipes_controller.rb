@@ -15,7 +15,8 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
-    byebug
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
   end
 
   private
@@ -26,8 +27,8 @@ class Api::V1::RecipesController < ApplicationController
         :name,
         :servings,
         :description,
-        quantities_attributes: [:amount, :unit, ingredient_attributes: [:name]],
-        instructions_attributes: [:description]
+        quantities_attributes: [:amount, :unit, :id, ingredient_attributes: [:name, :id]],
+        instructions_attributes: [:description, :id]
     )
   end
 end
