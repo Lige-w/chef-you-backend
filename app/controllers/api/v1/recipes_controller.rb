@@ -14,6 +14,10 @@ class Api::V1::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def update
+    byebug
+  end
+
   private
 
   def recipe_params
