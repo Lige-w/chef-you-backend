@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :create]
       resources :recipes, only: [:index, :create, :show]
       resources :ingredients, only: [:index]
+      get '/login', to: 'sessions#create'
     end
   end
 end
