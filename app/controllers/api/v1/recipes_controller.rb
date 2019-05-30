@@ -1,5 +1,6 @@
 class Api::V1::RecipesController < ApplicationController
 
+  before_action :get_recipe, only: [:show, :update, :destroy]
   def index
     render json: Recipe.all
   end
@@ -10,17 +11,23 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     render json: @recipe
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     render json: @recipe
   end
 
+  def destroy
+    byebug
+  end
+
   private
+
+  def get_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(
