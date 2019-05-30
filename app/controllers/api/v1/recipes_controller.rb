@@ -20,7 +20,9 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def destroy
-    byebug
+    @user = @recipe.user
+    @recipe.destroy
+    render json: @user
   end
 
   private
