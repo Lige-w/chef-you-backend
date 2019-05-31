@@ -8,7 +8,6 @@ class Quantity < ApplicationRecord
 
   def ingredient_attributes=(ingredient)
     self.ingredient = Ingredient.find_or_create_by(name: ingredient[:name])
-    byebug
     self.destroy if ingredient[:name].empty?
   end
 
