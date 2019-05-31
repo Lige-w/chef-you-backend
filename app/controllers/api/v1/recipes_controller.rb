@@ -37,8 +37,8 @@ class Api::V1::RecipesController < ApplicationController
         :name,
         :servings,
         :description,
-        quantities_attributes: [:amount, :unit, :id, ingredient_attributes: [:name, :id]],
-        instructions_attributes: [:description, :id]
+        quantities_attributes: [:amount, :unit, :id, :index, ingredient_attributes: [:name, :id]],
+        instructions_attributes: [:description, :id, :index]
     )
   end
 end
