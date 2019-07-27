@@ -7,7 +7,6 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-
     origins ['http://chef-you.herokuapp.com', 'https://chef-you.herokuapp.com']
     # origins '*'
     resource '*',
